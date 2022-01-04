@@ -9,11 +9,6 @@ API_TOKEN = os.getenv('API_TOKEN')
 bot = telebot.TeleBot(API_TOKEN)
 
 
-@bot.message_handler(commands=['greet'])
-def greet(message):
-    bot.reply_to(message, 'Hey!')
-
-
 @bot.message_handler(commands=['start'])
 def hello(message):
     while True:
@@ -21,7 +16,7 @@ def hello(message):
         if new_messages:
             for msg in new_messages:
                 bot.send_message(message.chat.id, msg)
-        time.sleep(300)
+        time.sleep(60)
 
 
 bot.polling()

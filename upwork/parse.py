@@ -4,12 +4,12 @@ from pathlib import Path
 
 url = 'https://www.upwork.com/ab/jobs/search/?q=data%20scraping&sort=recency'
 headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate", "DNT": "1", "Connection": "close", "Upgrade-Insecure-Requests": "1"}
-response = requests.get(url, headers=headers)
-soup = BeautifulSoup(response.text, 'lxml')
 
 
 def prepare_message():
 
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, 'lxml')
     messages = []
     with open(Path.cwd().joinpath('upwork', 'found_jobs.txt'), 'r') as title_file:
         titles = title_file.read().split('\n')
