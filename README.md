@@ -17,5 +17,5 @@ On Upwork's search page jobs are listed with some short description. Desired dat
 To prevent blocking from Upwork (403 status code) requests are only being send between 12AM and 12PM with various time intervals between 3-5 minutes.
 Although avoiding blocking is not guaranteed!
 
-<p align="center"><img width="400" src="./upwork/telegram_job.jpg"></p>
+<p align="center"><img width="400" src="./upwork/telegram_job.png"></p>
 <div align="center">A message sent from bot</div>
