@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Nunito&display=swap" rel="stylesheet">
+    <link type="text/css" href="{% static 'pages/css/base.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'pages/css/flex.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'pages/css/forms.css' %}" rel="stylesheet"/>
+    {% block styles %}
+    {% endblock %}
+    </head>
+    <body>
+        <header>
+            <div class="header-bar">
+                <div class="header-logo">Freelance Jobs</div>
+                <nav>
+                    {% for u_item in user_items %}
+                        {% if u_item.url_name == current_page %}
+                            <a class="button color active form-small" href="{% url u_item.url_name %}">{{ u_item.title }}</a>
+                        {% else %}
+                            <a class="button color form-small" href="{% url u_item.url_name %}">{{ u_item.title }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </main>
+        {% block script %}
+        {% endblock %}
+    </body>
+</html>
